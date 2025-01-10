@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    <title> My Table </title>
+
+    <style>
+        table {
+            border-collapse: collapse; 
+            width: 100%; 
+        }
+        th, td, th {
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: center;
+        }
+        th {
+            background-color: red;
+        }
+
+        #country-column{
+            background-color: burlywood;
+        }
+        #years{
+            background-color: greenyellow;
+        }
+
+        td {
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: gray;">
+
+    <table>
+    <tr>
+        <th>Country</th>
+        <th colspan="2">Population (In Crores)</th>
+    </tr>
+    <tr>
+        <td rowspan="3", id="country-column">India</td>
+        <td id = "years">1998</td>
+        <td>85</td>
+    </tr>
+    <tr>
+        <td id = "years">1999</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td id = "years">2000</td>
+        <td>100</td>
+    </tr>
+
+    <tr>
+        <td rowspan="3", id="country-column">USA</td>
+        <td id = "years">1998</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td id = "years">1999</td>
+        <td>35</td>
+    </tr>
+    <tr>
+        <td id = "years">2000</td>
+        <td>40</td>
+    </tr>
+
+    <tr>
+        <td rowspan="3", id="country-column">UK</td>
+        <td id = "years">1998</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td id = "years">1999</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td id = "years">2000</td>
+        <td>35</td>
+    </tr>
+
+    </table>
+</body>
