@@ -1,0 +1,314 @@
+<!-- Q1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+    
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+    </script>
+
+    <style>
+        body {
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/1000/780/17/university-teachers-school-blackboard-wallpaper-preview.jpg');
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+            font-style: italic;
+            color: wheat;
+        }
+
+        form {
+            background-color: burlywood;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
+        fieldset {
+            border: 1px solid brown;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="radio"],
+        input[type="checkbox"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: lightcyan;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightcyan;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Student Bio-Data Form</h1>
+    <form>
+        <fieldset>
+            <legend>Participant Details</legend>
+
+            <div class="form-group">
+                <label for="fullName">Full Name (required):</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email (required):</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (required):</label>
+                <input type="tel" id="phone" name="phone" pattern="\d{10}" placeholder="1234567890" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="60" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Course Fees</legend>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Duration</th>
+                        <th>Fees (per year)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B.Tech</td>
+                        <td>4 Years</td>
+                        <td>Rs. 30,00,000</td>
+                    </tr>
+                    <tr>
+                        <td>M.Tech</td>
+                        <td>2 Years</td>
+                        <td>Rs. 12,00,000</td>
+                    </tr>
+                    <tr>
+                        <td>PhD</td>
+                        <td>3-5 Years</td>
+                        <td>Rs. 35,000 (stipend)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>Course Selection</legend>
+
+            <div class="form-group">
+                <label for="Course">Course:</label><br>
+                <div class="radio-inline">
+                    <input type="radio" id="btech" name="Course" value="B.Tech" required>
+                    <label for="btech">B.Tech</label>
+                
+                    <input type="radio" id="mtech" name="Course" value="M.Tech" required>
+                    <label for="mtech">M.Tech</label>
+                
+                    <input type="radio" id="phd" name="Course" value="PhD" required>
+                    <label for="phd">PhD</label>
+                </div>
+            </div>
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>Consent and Submission</legend>
+
+            <div class="form-group">
+                <div class="checkbox-inline">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and conditions.</label><br>
+                </div>
+            </div>
+
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+
+
+<!-- Q2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Cover Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .cover-header {
+            background-image: url('https://plus.unsplash.com/premium_photo-1686730540270-93f2c33351b6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FyJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D'); 
+            background-size: cover;
+            background-position: center;
+            color: lightgrey;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .cover-subtitle {
+            font-size: 1.5rem;
+        }
+        .magazine-section {
+            padding: 30px 0;
+        }
+        .magazine-footer {
+            background-color: #253d55;
+            padding: 20px;
+        }
+        .footer-btn-group {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover-header">
+        <div class="container">
+            <h1 class="cover-title">The Car Magazine</h1>
+            <p class="cover-subtitle">January 2025 Edition</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search for articles..." aria-label="Search" aria-describedby="button-search">
+                <div class="input-group-append">
+                    <button class="btn btn-light" type="button" id="button-search">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row magazine-section">
+            
+            <div class="col-md-4">
+                <h3>Latest News</h3>
+                <p>BMW Sues Ferrari group for stealing there tailgate designs</p>
+                <button class="btn btn-primary">Read More</button>
+            </div>
+            
+            <div class="col-md-4">
+                <h3>Featured Article</h3>
+                <p>European Union pushes for full shift to electric this decade!</p>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning">Share</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Popular Tags</h3>
+                <span class="badge badge-primary">Fashion</span>
+                <span class="badge badge-success">Lifestyle</span>
+                <span class="badge badge-danger">Travel</span>
+                <span class="badge badge-info">Health</span><br>
+
+                <span class="badge badge-danger">Race Days</span>
+                <span class="badge badge-info">Meet Ups</span>
+                <span class="badge badge-primary">Technology</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="magazine-footer">
+        <div class="container footer-btn-group">
+            <button class="btn btn-outline-secondary">Subscribe</button>
+            <button class="btn btn-outline-secondary">Contact</button>
+            <button class="btn btn-outline-secondary">About</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

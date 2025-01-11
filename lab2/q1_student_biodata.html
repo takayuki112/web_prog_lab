@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+    </script>
+</head>
+<body>
+    <h1>Student Bio-Data Form</h1>
+    <form>
+        <fieldset>
+            <legend>Participant Details</legend>
+
+            <label for="fullName">Full Name (required):</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br><br>
+
+            <label for="email">Email (required):</label>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required><br><br>
+
+            <label for="phone">Phone Number (required):</label>
+            <input type="tel" id="phone" name="phone" pattern="\d{10}" placeholder="1234567890" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="60" required><br><br>
+        </fieldset>
+        
+        <fieldset>
+            <label for="Course">Course</label><br>
+            <input type="radio" id="btech" name="Course" value="B.Tech" required>
+            <label for="btech">B.tech</label><br>
+
+            <input type="radio" id="mtech" name="Course" value="M.Tech" required>
+            <label for="mtech">M.tech</label><br>
+
+            <input type="radio" id="phd" name="Course" value="PhD" required>
+            <label for="phd">PhD</label><br>
+            
+        </fieldset>
+        <fieldset>
+            <legend>Consent and Submission</legend>
+
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the terms and conditions.</label><br><br>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+</body>
+</html>

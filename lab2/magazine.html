@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Cover Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .cover-header {
+            background-image: url('https://plus.unsplash.com/premium_photo-1686730540270-93f2c33351b6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FyJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D'); 
+            background-size: cover;
+            background-position: center;
+            color: lightgrey;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .cover-subtitle {
+            font-size: 1.5rem;
+        }
+        .magazine-section {
+            padding: 30px 0;
+        }
+        .magazine-footer {
+            background-color: #253d55;
+            padding: 20px;
+        }
+        .footer-btn-group {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover-header">
+        <div class="container">
+            <h1 class="cover-title">The Car Magazine</h1>
+            <p class="cover-subtitle">January 2025 Edition</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search for articles..." aria-label="Search" aria-describedby="button-search">
+                <div class="input-group-append">
+                    <button class="btn btn-light" type="button" id="button-search">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row magazine-section">
+            
+            <div class="col-md-4">
+                <h3>Latest News</h3>
+                <p>BMW Sues Ferrari group for stealing there tailgate designs</p>
+                <button class="btn btn-primary">Read More</button>
+            </div>
+            
+            <div class="col-md-4">
+                <h3>Featured Article</h3>
+                <p>European Union pushes for full shift to electric this decade!</p>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning">Share</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Popular Tags</h3>
+                <span class="badge badge-primary">Fashion</span>
+                <span class="badge badge-success">Lifestyle</span>
+                <span class="badge badge-danger">Travel</span>
+                <span class="badge badge-info">Health</span><br>
+
+                <span class="badge badge-danger">Race Days</span>
+                <span class="badge badge-info">Meet Ups</span>
+                <span class="badge badge-primary">Technology</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="magazine-footer">
+        <div class="container footer-btn-group">
+            <button class="btn btn-outline-secondary">Subscribe</button>
+            <button class="btn btn-outline-secondary">Contact</button>
+            <button class="btn btn-outline-secondary">About</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
