@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- Using jQuery from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e6fd7e;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #f7f7f7;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        
+        <!-- Buttons for digits and operations -->
+        <div class="row">
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn" data-value="/">/</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn" data-value="*">*</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn" data-value="-">-</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn" id="equals">=</button>
+            <button class="btn" data-value="+">+</button>
+        </div>
+
+        <div class="row">
+            <button class="btn" id="clear">C</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var currentInput = "";
+
+            // When a number or operator button is clicked
+            $('.btn').click(function() {
+                var buttonValue = $(this).data('value');
+                
+                if (buttonValue === "=") {
+                    // Only evaluate if there is valid input
+                    if (currentInput) {
+                        try {
+                            currentInput = eval(currentInput).toString();  // Evaluate and convert to string
+                        } catch (e) {
+                            currentInput = "Error";  // In case of invalid input
+                        }
+                    }
+                } else if (buttonValue === "C") {
+                    // Clear the display when 'C' button is clicked
+                    currentInput = "";
+                } else {
+                    // Append the clicked value to the input
+                    currentInput += buttonValue;
+                }
+
+                // Update the display with the current input
+                $('#display').val(currentInput);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+Q1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wallpaperaccess.com/full/1943037.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">FONT+++</div>
+    <script>
+        let fontSize = 5;
+        let increasing = true;
+        const textElement = document.getElementById("text");
+        textElement.style.color = "red";
+        textElement.style.fontSize = fontSize + "pt";
+
+        function animateFont() {
+            if (increasing) {
+                fontSize += 1;
+                if (fontSize >= 40) {
+                    increasing = false;
+                    textElement.innerText = "FONT---";
+                    textElement.style.color = "blue";
+                }
+            } else {
+                fontSize -= 1;
+                if (fontSize <= 5) {
+                    increasing = true;
+                    textElement.innerText = "FONT+++";
+                    textElement.style.color = "red";
+                }
+            }
+            textElement.style.fontSize = fontSize + "pt";
+        }
+
+        setInterval(animateFont, 200);
+    </script>
+</body>
+</html>
+
+Q2. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Simple Calculator</h2>
+            <div class="mb-3">
+                <label for="num1" class="form-label">Enter First Number:</label>
+                <input type="number" class="form-control" id="num1">
+            </div>
+            <div class="mb-3">
+                <label for="num2" class="form-label">Enter Second Number:</label>
+                <input type="number" class="form-control" id="num2">
+            </div>
+            <div class="mb-3">
+                <label for="operation" class="form-label">Select Operation:</label>
+                <select class="form-select" id="operation">
+                    <option value="sum">Sum</option>
+                    <option value="product">Product</option>
+                    <option value="difference">Difference</option>
+                    <option value="quotient">Quotient</option>
+                </select>
+            </div>
+            <button class="btn btn-primary w-100" onclick="performCalculation()">Calculate</button>
+            <h4 class="mt-4 text-center" id="result"></h4>
+        </div>
+    </div>
+    
+    <script>
+        function performCalculation() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            let result;
+
+            switch (operation) {
+                case 'sum':
+                    result = num1 + num2;
+                    break;
+                case 'product':
+                    result = num1 * num2;
+                    break;
+                case 'difference':
+                    result = num1 - num2;
+                    break;
+                case 'quotient':
+                    result = num2 !== 0 ? num1 / num2 : "Error: Division by zero!";
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

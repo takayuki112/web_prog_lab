@@ -1,0 +1,399 @@
+
+---------------------------------------------
+Sample question - 
+---------------------------------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+
+    <style>
+        body {
+        background-color: lightblue;
+        }
+        h1 {
+        color: white;
+        text-align: center;
+        }
+        p {
+        font-family: verdana;
+        font-size: 20px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function check(form){
+            if(form.userid.value == "user" && form.pswrd.value == "pswrd"){
+                window.open("http://www.google.com", "_blank");
+            }
+            else{
+                alert("Error in username (user) and password (pswrd)")
+            }
+        }
+
+    </script>
+    </head>
+
+    <body>
+        <h1> Validate Credentials </h1>
+        <form name="login">
+            Username<input type="text" name="userid"/>
+            Password<input type="password" name="pswrd"/>
+            <input type="button" onclick="check(this.form)" value="Login"/>
+            <input type="reset" value="Cancel"/>
+        </form>
+    </body>
+
+</html>
+
+
+---------------------------------------------
+Question 1 - Online Quiz
+---------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Knowledge Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin: 20px;
+            font-size: 18px;
+        }
+        .answer {
+            margin: 10px;
+            display: block;
+            padding: 10px;
+            background-color: #e2e2e2;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .answer:hover {
+            background-color: #f5f100;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: green;
+            color: white;
+        }
+        .incorrect {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Car Knowledge Quiz</h1>
+<div id="quiz">
+    <div class="question">
+        <p>1. Which company manufactures the Mustang?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) Chevrolet</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) Ford</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) Dodge</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) BMW</button>
+    </div>
+
+    <div class="question">
+        <p>2. What year was the first Ferrari sports car produced?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) 1925</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) 1947</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) 1965</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) 1970</button>
+    </div>
+
+    <div class="question">
+        <p>3. Which car is known as "The Godfather's Car" in the movie series?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) Cadillac Series 62</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) Chevrolet Corvette</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) Ford Model T</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) Mercedes-Benz S-Class</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+<script>
+    let score = 0;
+
+    const correctAnswers = ['b', 'b', 'a'];
+
+    function checkAnswer(button, selectedAnswer) {
+        const questionDiv = button.closest('.question');
+        const buttons = questionDiv.querySelectorAll('.answer');
+        
+        buttons.forEach(btn => btn.disabled = true);
+        
+        const questionIndex = Array.from(questionDiv.parentElement.children).indexOf(questionDiv);
+        
+        if (selectedAnswer === correctAnswers[questionIndex]) {
+            button.classList.add('correct');
+            score++;
+        } else {
+            button.classList.add('incorrect');
+        }
+
+        checkFinalScore();
+    }
+
+    function checkFinalScore() {
+        const answeredQuestions = document.querySelectorAll('.question');
+        const answeredCount = Array.from(answeredQuestions).filter(q => Array.from(q.querySelectorAll('.answer')).every(btn => btn.disabled)).length;
+        
+        if (answeredCount === correctAnswers.length) {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `You got ${score} out of ${correctAnswers.length} correct!`;
+        resultDiv.style.color = score === correctAnswers.length ? 'green' : 'red';
+    }
+</script>
+
+</body>
+</html>
+
+---------------------------------------------
+Question 2 - Wishing Clock 
+---------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Clock and Greeting Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        #clock {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        #wishButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #wishButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to the Dynamic Clock</h1>
+<button id="wishButton" onclick="wishUser()">Wish Me!</button>
+<div id="clock"></div>
+
+<script>
+    
+    function wishUser() {
+        const now = new Date();
+        const hour = now.getHours();
+        
+        if (hour >= 5 && hour < 12) {
+            alert("Good Morning! Have a great start to your day!");
+        } else if (hour >= 12 && hour < 17) {
+            alert("Good Afternoon! Hope you're having a wonderful day!");
+        } else if (hour >= 17 && hour < 21) {
+            alert("Good Evening! Enjoy the rest of your day!");
+        } else {
+            alert("Good Night! Sleep tight!");
+        }
+    }
+
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('clock').innerText = timeString;
+    }
+
+    setInterval(updateClock, 1000);
+
+    // Initialize the clock
+    updateClock();
+</script>
+
+</body>
+</html>
+
+---------------------------------------------
+Question 3 - Avg Marks Grade
+---------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin: 10px;
+            width: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Grade Calculator</h1>
+
+<p>Enter the marks for 4 subjects:</p>
+<input type="number" id="subject1" placeholder="Subject 1">
+<input type="number" id="subject2" placeholder="Subject 2">
+<input type="number" id="subject3" placeholder="Subject 3">
+<input type="number" id="subject4" placeholder="Subject 4">
+
+<br><br>
+
+<button onclick="calculateGrade()">Calculate Grade</button>
+<div id="result"></div>
+
+<script>
+    function calculateGrade() {
+        const subject1 = parseFloat(document.getElementById('subject1').value);
+        const subject2 = parseFloat(document.getElementById('subject2').value);
+        const subject3 = parseFloat(document.getElementById('subject3').value);
+        const subject4 = parseFloat(document.getElementById('subject4').value);
+
+        if (isNaN(subject1) || isNaN(subject2) || isNaN(subject3) || isNaN(subject4)) {
+            document.getElementById('result').innerText = "Please enter valid marks for all subjects!";
+            return;
+        }
+
+        const average = (subject1 + subject2 + subject3 + subject4) / 4;
+
+        let grade;
+        if (average > 90) {
+            grade = "A";
+        } else if (average > 80) {
+            grade = "B";
+        } else if (average > 70) {
+            grade = "C";
+        } else if (average > 60) {
+            grade = "D";
+        } else {
+            grade = "F";  
+        }
+
+        document.getElementById('result').innerText = `Your average is: ${average.toFixed(2)}\nYour grade is: ${grade}`;
+    }
+</script>
+
+</body>
+</html>
+
+---------------------------------------------
+Question 4 - Radio Colours
+---------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        #canvas {
+            border: 1px solid #000;
+            width: 300px;
+            height: 200px;
+            display: block;
+            margin: 20px auto;
+        }
+        .radio-buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Change Canvas Color</h1>
+
+<canvas id="canvas"></canvas>
+
+<div class="radio-buttons">
+    <label>
+        <input type="radio" name="color" value="red" onclick="changeColor('red')"> Red
+    </label>
+    <label>
+        <input type="radio" name="color" value="green" onclick="changeColor('green')"> Green
+    </label>
+    <label>
+        <input type="radio" name="color" value="blue" onclick="changeColor('blue')"> Blue
+    </label>
+</div>
+
+<script>
+    function changeColor(color) {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = color;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+</script>
+
+</body>
+</html>

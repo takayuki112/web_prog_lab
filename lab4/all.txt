@@ -1,0 +1,394 @@
+sample - 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#mydiv").click(function() {
+                alert("Hello, world!");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="mydiv">
+        Click on this to see a dialogue box.
+    </div>
+</body>
+</html>
+
+------
+Q1
+------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Table and Image</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            width: 300px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #9be5f1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f79b9b;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            position: relative; 
+            width: 100%; 
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        body {
+            background-color: rgb(241, 185, 112);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Animated Table and Image</h2>
+
+    <div id="container">
+        <table>
+            <tr>
+                <td>Bird 11</td>
+                <td>Bird 12</td>
+                <td>Bird 13</td>
+            </tr>
+            <tr>
+                <td>Bird 21</td>
+                <td>Bird 22</td>
+                <td>Bird 23</td>
+            </tr>
+            <tr>
+                <td>Bird 31</td>
+                <td>Bird 32</td>
+                <td>Bird 33</td>
+            </tr>
+        </table>
+
+        <img src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg" alt="Image">
+    </div>
+
+    <button id="moveButton">Move Forward >></button>
+    <button id="movebackButton">  Move it back</button>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#moveButton').click(function() {
+                $('#container').animate({
+                    left: '60%' 
+                }, 2000); 
+            });
+        });
+
+        $(document).ready(function() {
+            $('#movebackButton').click(function() {
+                $('#container').animate({
+                    left: '0%' 
+                }, 1500); 
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+------
+Q2
+------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- Using jQuery from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e6fd7e;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #f7f7f7;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        
+        <!-- Buttons for digits and operations -->
+        <div class="row">
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn" data-value="/">/</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn" data-value="*">*</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn" data-value="-">-</button>
+        </div>
+        <div class="row">
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn" id="equals">=</button>
+            <button class="btn" data-value="+">+</button>
+        </div>
+
+        <div class="row">
+            <button class="btn" id="clear">C</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var currentInput = "";
+
+            // When a number or operator button is clicked
+            $('.btn').click(function() {
+                var buttonValue = $(this).data('value');
+                
+                if (buttonValue === "=") {
+                    // Only evaluate if there is valid input
+                    if (currentInput) {
+                        try {
+                            currentInput = eval(currentInput).toString();  // Evaluate and convert to string
+                        } catch (e) {
+                            currentInput = "Error";  // In case of invalid input
+                        }
+                    }
+                } else if (buttonValue === "C") {
+                    // Clear the display when 'C' button is clicked
+                    currentInput = "";
+                } else {
+                    // Append the clicked value to the input
+                    currentInput += buttonValue;
+                }
+
+                // Update the display with the current input
+                $('#display').val(currentInput);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+-----
+Q3
+-----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Designer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .card-preview {
+            flex: 1;
+            width: 50%;
+            height: 600px;
+            margin-top: 20px;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            position: relative;
+            flex-direction: column;
+        }
+        .card-preview img {
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+            position: relative;
+        }
+        .form-container label, .form-container select, .form-container input, .form-container textarea {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .form-container textarea {
+            resize: none;
+        }
+        .radio-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .radio-buttons input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Birthday Card Designer</h1>
+
+        <label for="bgColor">Background Color:</label>
+        <select id="bgColor">
+            <option value="lightblue">Blue</option>
+            <option value="lightgreen">Green</option>
+            <option value="lightyellow">Yellow</option>
+            <option value="lightpink">Pink</option>
+        </select>
+
+        <label for="font">Font:</label>
+        <select id="font">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="'Courier New', Courier, monospace">Courier New</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+            <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans</option>
+        </select>
+
+        <label for="fontSize">Font Size:</label>
+        <input type="number" id="fontSize" value="20" min="10" max="50">
+
+        <label>Border Style:</label>
+        <div class="radio-buttons">
+            <label><input type="radio" name="border" value="none" checked> None</label>
+            <label><input type="radio" name="border" value="solid"> Solid</label>
+            <label><input type="radio" name="border" value="double"> Double</label>
+        </div>
+
+        <label for="addImage">Add Image:</label>
+        <input type="checkbox" id="addImage">
+
+        <label for="greeting">Greeting Message:</label>
+        <textarea id="greeting" rows="4" cols="30">Happy Birthday!</textarea>
+
+        <button onclick="updateCard()">Preview Card</button>
+    </div>
+
+    <div class="card-preview" id="cardPreview">
+        <div id="cardGreeting">Happy Birthday!</div>
+    </div>
+
+    <script>
+        function updateCard() {
+            // Get data
+            const bgColor = document.getElementById('bgColor').value;
+            const font = document.getElementById('font').value;
+            const fontSize = document.getElementById('fontSize').value;
+            const borderStyle = document.querySelector('input[name="border"]:checked').value;
+            const addImage = document.getElementById('addImage').checked;
+            const greeting = document.getElementById('greeting').value;
+
+            // Get the card preview element
+            const cardPreview = document.getElementById('cardPreview');
+            const cardGreeting = document.getElementById('cardGreeting');
+
+            cardPreview.style.backgroundColor = bgColor;
+
+            cardGreeting.style.fontFamily = font;
+            cardGreeting.style.fontSize = fontSize + 'px';
+
+            cardPreview.style.border = `2px ${borderStyle} black`;
+
+            cardGreeting.textContent = greeting;
+            
+            const imgElement = cardPreview.querySelector('img');
+            if (addImage && !imgElement) {
+                const img = document.createElement('img');
+                img.src = 'data:image/png;base64,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';
+                cardPreview.appendChild(img);
+            } else if (!addImage && imgElement) {
+                imgElement.remove();
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Knowledge Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin: 20px;
+            font-size: 18px;
+        }
+        .answer {
+            margin: 10px;
+            display: block;
+            padding: 10px;
+            background-color: #e2e2e2;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .answer:hover {
+            background-color: #f5f100;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: green;
+            color: white;
+        }
+        .incorrect {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Car Knowledge Quiz</h1>
+<div id="quiz">
+    <div class="question">
+        <p>1. Which company manufactures the Mustang?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) Chevrolet</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) Ford</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) Dodge</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) BMW</button>
+    </div>
+
+    <div class="question">
+        <p>2. What year was the first Ferrari sports car produced?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) 1925</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) 1947</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) 1965</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) 1970</button>
+    </div>
+
+    <div class="question">
+        <p>3. Which car is known as "The Godfather's Car" in the movie series?</p>
+        <button class="answer" onclick="checkAnswer(this, 'a')">a) Cadillac Series 62</button>
+        <button class="answer" onclick="checkAnswer(this, 'b')">b) Chevrolet Corvette</button>
+        <button class="answer" onclick="checkAnswer(this, 'c')">c) Ford Model T</button>
+        <button class="answer" onclick="checkAnswer(this, 'd')">d) Mercedes-Benz S-Class</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+<script>
+    let score = 0;
+
+    const correctAnswers = ['b', 'b', 'a'];
+
+    function checkAnswer(button, selectedAnswer) {
+        const questionDiv = button.closest('.question');
+        const buttons = questionDiv.querySelectorAll('.answer');
+        
+        buttons.forEach(btn => btn.disabled = true);
+        
+        const questionIndex = Array.from(questionDiv.parentElement.children).indexOf(questionDiv);
+        
+        if (selectedAnswer === correctAnswers[questionIndex]) {
+            button.classList.add('correct');
+            score++;
+        } else {
+            button.classList.add('incorrect');
+        }
+
+        checkFinalScore();
+    }
+
+    function checkFinalScore() {
+        const answeredQuestions = document.querySelectorAll('.question');
+        const answeredCount = Array.from(answeredQuestions).filter(q => Array.from(q.querySelectorAll('.answer')).every(btn => btn.disabled)).length;
+        
+        if (answeredCount === correctAnswers.length) {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `You got ${score} out of ${correctAnswers.length} correct!`;
+        resultDiv.style.color = score === correctAnswers.length ? 'green' : 'red';
+    }
+</script>
+
+</body>
+</html>

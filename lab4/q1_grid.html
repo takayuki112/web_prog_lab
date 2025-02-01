@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Table and Image</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            width: 300px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #9be5f1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f79b9b;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            position: relative; 
+            width: 100%; 
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        body {
+            background-color: rgb(241, 185, 112);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Animated Table and Image</h2>
+
+    <div id="container">
+        <table>
+            <tr>
+                <td>Bird 11</td>
+                <td>Bird 12</td>
+                <td>Bird 13</td>
+            </tr>
+            <tr>
+                <td>Bird 21</td>
+                <td>Bird 22</td>
+                <td>Bird 23</td>
+            </tr>
+            <tr>
+                <td>Bird 31</td>
+                <td>Bird 32</td>
+                <td>Bird 33</td>
+            </tr>
+        </table>
+
+        <img src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg" alt="Image">
+    </div>
+
+    <button id="moveButton">Move Forward >></button>
+    <button id="movebackButton">  Move it back</button>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#moveButton').click(function() {
+                $('#container').animate({
+                    left: '60%' 
+                }, 2000); 
+            });
+        });
+
+        $(document).ready(function() {
+            $('#movebackButton').click(function() {
+                $('#container').animate({
+                    left: '0%' 
+                }, 1500); 
+            });
+        });
+    </script>
+
+</body>
+</html>
